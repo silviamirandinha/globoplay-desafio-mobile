@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':remote', ':repository', ':local'
 rootProject.name='Globo Play Desafio Mirandinha'
