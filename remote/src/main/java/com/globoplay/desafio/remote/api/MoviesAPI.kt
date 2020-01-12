@@ -1,7 +1,6 @@
 package com.globoplay.desafio.remote.api
 
-import com.globoplay.desafio.remote.domain.MoviesResponse
-import retrofit2.Call
+import com.globoplay.desafio.domain.MoviesResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

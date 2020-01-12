@@ -1,4 +1,4 @@
-package com.globoplay.desafio.remote.domain
+package com.globoplay.desafio.domain
 
 class MoviesResponse {
     var page: Int ? = 0

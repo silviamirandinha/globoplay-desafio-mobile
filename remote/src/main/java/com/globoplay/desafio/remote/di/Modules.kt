@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 
 val networkModule = module {
-    single { providerApi(get()) }
+    single { providerMoviesApi(get()) }
     single { provideOkHttpClient() }
     single { providerRetrofit(get()) }
 }
@@ -30,5 +30,5 @@ fun provideOkHttpClient(): OkHttpClient {
         .build()
 }
 
-fun providerApi(retrofit: Retrofit): MoviesAPI = retrofit.create(MoviesAPI::class.java)
+fun providerMoviesApi(retrofit: Retrofit): MoviesAPI = retrofit.create(MoviesAPI::class.java)
 
