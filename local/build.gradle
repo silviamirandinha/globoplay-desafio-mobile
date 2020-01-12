@@ -34,6 +34,13 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
 
+    //Koin
+    implementation "org.koin:koin-java:2.0.1"
+    implementation "org.koin:koin-androidx-ext:2.0.1"
+    implementation "org.koin:koin-androidx-scope:2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    implementation "org.koin:koin-android-architecture:0.9.1"
+
     //Room
     implementation "androidx.room:room-ktx:2.2.3"
     implementation "androidx.room:room-runtime:2.2.3"

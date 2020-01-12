@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 val homeModule = module {
     //TODO: REPOSITORY AND API
-    viewModel { HomeViewModel() }
+    viewModel { HomeViewModel(get(), get()) }
     factory { HomeFragment() }
 }
 

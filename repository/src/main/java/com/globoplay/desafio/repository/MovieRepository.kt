@@ -1,7 +1,9 @@
 package com.globoplay.desafio.repository
 
-import com.globoplay.desafio.domain.MoviesResponse
+import androidx.lifecycle.MutableLiveData
+import com.globoplay.desafio.domain.Result
 
 interface MovieRepository {
-    suspend fun getMovies(): MoviesResponse
+    fun getListMovies(): MutableLiveData<List<Result>>
+    suspend fun getMovies()
 }

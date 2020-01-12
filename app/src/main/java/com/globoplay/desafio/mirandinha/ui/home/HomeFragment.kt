@@ -20,8 +20,6 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.text.observe(this, Observer {
-           text_home.text = it
-        })
+
     }
 }

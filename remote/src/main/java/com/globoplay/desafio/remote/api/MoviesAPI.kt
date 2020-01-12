@@ -1,6 +1,7 @@
 package com.globoplay.desafio.remote.api
 
 import com.globoplay.desafio.domain.MoviesResponse
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 

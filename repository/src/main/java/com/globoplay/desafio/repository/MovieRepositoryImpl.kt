@@ -1,12 +1,21 @@
 package com.globoplay.desafio.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.globoplay.desafio.domain.Result
 import com.globoplay.desafio.remote.api.MoviesAPI
-import com.globoplay.desafio.domain.MoviesResponse
+import com.globoplay.desafio.local.data.MoviesDao
 
-class MovieRepositoryImpl(private val api: MoviesAPI) : MovieRepository {
+class MovieRepositoryImpl(private val api: MoviesAPI,  private val dao: MoviesDao) : MovieRepository {
 
-    override suspend fun getMovies(): MoviesResponse {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getListMovies(): MutableLiveData<List<Result>> {
+        return dao.findAllMovies()
     }
+
+    override suspend fun getMovies() {
+        val movies = api.getMovies("3599df922b2707a3b9ef2f95f1bbd73b","pt-BR","popularity.desc")
+        movies.results?.let { dao.addMovies(it) }
+    }
+
 
 }
