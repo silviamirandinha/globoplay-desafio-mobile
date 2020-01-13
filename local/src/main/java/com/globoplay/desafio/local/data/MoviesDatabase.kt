@@ -6,5 +6,5 @@ import com.globoplay.desafio.domain.Result
 
 @Database(entities = [Result::class], version = 1, exportSchema = false)
 abstract class MoviesDatabase : RoomDatabase() {
-    abstract val moviesDao: MoviesDao
+    abstract fun moviesDao(): MoviesDao
 }

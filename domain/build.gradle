@@ -27,9 +27,12 @@ android {
 }
 
 dependencies {
+
     //Room
+    kapt "androidx.room:room-compiler:2.2.3"
     implementation "androidx.room:room-ktx:2.2.3"
     implementation "androidx.room:room-runtime:2.2.3"
+    implementation "android.arch.persistence.room:runtime:1.1.1"
 
     //Koin
     implementation "org.koin:koin-java:2.0.1"

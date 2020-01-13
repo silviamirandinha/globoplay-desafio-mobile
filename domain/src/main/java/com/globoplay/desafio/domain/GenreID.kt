@@ -1,5 +1,5 @@
 package com.globoplay.desafio.domain
 
 class GenreID {
-    var id: Int ? = 0
+    val id: Int ? = 0
 }

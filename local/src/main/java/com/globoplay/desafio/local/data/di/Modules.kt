@@ -1,13 +1,25 @@
 package com.globoplay.desafio.local.data.di
 
+import android.app.Application
 import androidx.room.Room
+import com.globoplay.desafio.local.data.MoviesDao
 import com.globoplay.desafio.local.data.MoviesDatabase
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
-val dataModule = module {
-    single { get<MoviesDatabase>().moviesDao }
-    single {
-            Room.databaseBuilder(get(), MoviesDatabase::class.java, "movie.db")
+val localModule = module {
+
+    fun provideDatabase(application: Application): MoviesDatabase {
+        return Room.databaseBuilder(application, MoviesDatabase::class.java, "movie.database")
             .fallbackToDestructiveMigration()
-            .allowMainThreadQueries().build() }
+            .allowMainThreadQueries()
+            .build()
+    }
+
+    fun provideDao(database: MoviesDatabase): MoviesDao {
+        return database.moviesDao()
+    }
+
+    single { provideDatabase(androidApplication()) }
+    single { provideDao(get()) }
 }

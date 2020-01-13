@@ -1,21 +1,21 @@
 package com.globoplay.desafio.domain
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "movies")
 data class Result (
-    var popularity: Int ? = 0,
-    var id: Int ? = 0,
-    var video: Boolean = false,
-    var vote_count: Int ? = 0,
-    var vote_average: Int ? = 0,
-    var title: String? = null,
-    var release_date: String? = null,
-    var original_language: String? = null,
-    var original_title: String? = null,
-    var genre_ids : List<GenreID>? = null,
-    var backdrop_path: String? = null,
-    var adult: Boolean = false,
-    var overview: String? = null,
-    var poster_path: String? = null
+    val popularity: Int ? = 0,
+    @PrimaryKey val id: Int ? = 0,
+    val video: Boolean = false,
+    val vote_count: Int ? = 0,
+    val vote_average: Int ? = 0,
+    val title: String? = null,
+    val release_date: String? = null,
+    val original_language: String? = null,
+    val original_title: String? = null,
+    val backdrop_path: String? = null,
+    val adult: Boolean = false,
+    val overview: String? = null,
+    val poster_path: String? = null
 )

@@ -5,12 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.globoplay.desafio.mirandinha.util.RequestStatus
-import com.globoplay.desafio.remote.api.MoviesAPI
 import com.globoplay.desafio.repository.MovieRepository
 import kotlinx.coroutines.launch
 import com.globoplay.desafio.domain.Result
 
-class HomeViewModel(private val repository: MovieRepository, val api: MoviesAPI) : ViewModel() {
+class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
@@ -21,10 +20,10 @@ class HomeViewModel(private val repository: MovieRepository, val api: MoviesAPI)
     val requestStatus: MutableLiveData<RequestStatus>
         get() = _requestStatus
 
-    val listMovies: MutableLiveData<List<Result>> = repository.getListMovies()
+    val listMovies: LiveData<List<Result>> = repository.getListMovies()
 
     init {
-        fetchData()
+       // fetchData()
     }
 
     private fun fetchData() {
