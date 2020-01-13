@@ -34,6 +34,9 @@ dependencies {
     implementation "androidx.room:room-runtime:2.2.3"
     implementation "android.arch.persistence.room:runtime:1.1.1"
 
+   //Gson
+    implementation "com.google.code.gson:gson:2.8.5"
+
     //Koin
     implementation "org.koin:koin-java:2.0.1"
     implementation "org.koin:koin-androidx-ext:2.0.1"

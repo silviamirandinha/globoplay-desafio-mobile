@@ -14,6 +14,7 @@ data class Result (
     val release_date: String? = null,
     val original_language: String? = null,
     val original_title: String? = null,
+    val genre_ids : List<GenreID>? = null,
     val backdrop_path: String? = null,
     val adult: Boolean = false,
     val overview: String? = null,
