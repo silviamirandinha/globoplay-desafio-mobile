@@ -26,11 +26,11 @@ class HomeFragment : Fragment() {
             text_home.text = it
         })
 
-        /*viewModel.listMovies.observe(this, Observer {
-            // Todo: setar recyclerView
-            it.forEach { movies ->
-                Toast.makeText(context, movies.title, Toast.LENGTH_SHORT).show()
-            }
-        })*/
+        viewModel.listMovies.observe(this, Observer {
+           Toast.makeText(context, it[0].title, Toast.LENGTH_SHORT).show()
+           /*it.forEach { movies ->
+              Toast.makeText(context, movies.title, Toast.LENGTH_SHORT).show()
+            }*/
+        })
     }
 }

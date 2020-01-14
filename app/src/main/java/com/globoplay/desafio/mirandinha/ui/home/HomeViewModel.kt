@@ -1,5 +1,6 @@
 package com.globoplay.desafio.mirandinha.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,7 +24,7 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
     val listMovies: LiveData<List<Result>> = repository.getListMovies()
 
     init {
-       // fetchData()
+       fetchData()
     }
 
     private fun fetchData() {
@@ -34,6 +35,7 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
                 _requestStatus.postValue(RequestStatus.LOADED)
             } catch (e: Exception) {
                 _requestStatus.postValue(RequestStatus.error(e.message))
+                Log.d("Erro buscar filme", e.message)
             }
         }
     }
