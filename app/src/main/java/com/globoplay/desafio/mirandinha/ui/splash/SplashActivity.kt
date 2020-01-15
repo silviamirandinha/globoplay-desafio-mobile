@@ -1,10 +1,12 @@
-package com.globoplay.desafio.mirandinha
+package com.globoplay.desafio.mirandinha.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
+import com.globoplay.desafio.mirandinha.MainActivity
+import com.globoplay.desafio.mirandinha.R
 import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity() {

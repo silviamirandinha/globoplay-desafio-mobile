@@ -2,9 +2,10 @@ package com.globoplay.desafio.domain
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "movies")
-data class Result (
+data class Result(
     val popularity: Float ? = 0F,
     @PrimaryKey val id: Int ? = 0,
     val video: Boolean = false,
@@ -19,4 +20,4 @@ data class Result (
     val adult: Boolean = false,
     val overview: String? = null,
     val poster_path: String? = null
-)
+): Serializable

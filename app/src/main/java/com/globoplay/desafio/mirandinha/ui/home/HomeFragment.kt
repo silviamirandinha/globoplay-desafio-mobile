@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.globoplay.desafio.mirandinha.R
 import com.globoplay.desafio.mirandinha.util.SpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
+import android.content.Intent
+import com.globoplay.desafio.mirandinha.ui.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -35,8 +36,9 @@ class HomeFragment : Fragment() {
                         object :
                             HomeListAdapter.OnItemClickListener {
                             override fun onItemClick(position: Int) {
-                                view?.findNavController()
-                                    ?.navigate(R.id.navigation_favorite, arguments)
+                                val intent = Intent(activity, DetailActivity::class.java)
+                                intent.putExtra("MOVIE",  movies[position])
+                                startActivity(intent)
                             }
                         }
                     )
