@@ -35,6 +35,8 @@ class DetailActivity : AppCompatActivity() {
             .load(IMAGE_HOST +movie?.backdrop_path)
             .transform(BlurTransformation(this, 25, 1))
             .into(detail_image_blur)
+
+        detail_title.text = movie?.title
     }
 
 
