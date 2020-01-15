@@ -25,12 +25,14 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "HOST", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField "String", "IMAGE_HOST", "\"https://image.tmdb.org/t/p/w500/\""
             minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             buildConfigField("String", "HOST", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField "String", "IMAGE_HOST", "\"https://image.tmdb.org/t/p/w500/\""
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

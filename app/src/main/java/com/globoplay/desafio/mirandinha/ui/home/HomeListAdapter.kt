@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.globoplay.desafio.mirandinha.R
 import com.globoplay.desafio.domain.Result
+import com.globoplay.desafio.remote.BuildConfig
 import com.squareup.picasso.Picasso
 
 class HomeListAdapter(private val movies: List<Result>, private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<HomeListAdapter.MovieViewHolder>() {
@@ -22,7 +23,7 @@ class HomeListAdapter(private val movies: List<Result>, private val onItemClickL
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         Picasso.with(context)
-            .load(movies[position].poster_path)
+            .load(BuildConfig.IMAGE_HOST+movies[position].poster_path)
             .into(holder.image)
         holder.item.setOnClickListener {
             onItemClickListener.onItemClick(position)
