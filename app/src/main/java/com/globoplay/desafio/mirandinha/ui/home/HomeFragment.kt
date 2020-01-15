@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.globoplay.desafio.mirandinha.R
+import com.globoplay.desafio.mirandinha.util.SpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,13 +24,11 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.text.observe(this, Observer {
-            title_home.text = it
-        })
 
         viewModel.listMovies.observe(this, Observer { movies ->
-            movies?.let {
-                home_recycler_view.layoutManager = GridLayoutManager(context, 3)
+            home_recycler_view.setLayoutManager(GridLayoutManager(activity, 3))
+            val spacingInPixels = getResources().getDimensionPixelSize(R.dimen.grid4)
+            home_recycler_view.addItemDecoration(SpacingItemDecoration(spacingInPixels))
                 home_recycler_view.adapter =
                     HomeListAdapter(
                         movies,
@@ -41,6 +40,6 @@ class HomeFragment : Fragment() {
                             }
                         }
                     )
-            }})
+            })
     }
 }

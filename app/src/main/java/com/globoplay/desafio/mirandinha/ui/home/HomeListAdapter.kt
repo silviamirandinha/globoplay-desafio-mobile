@@ -4,11 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.globoplay.desafio.mirandinha.R
 import com.globoplay.desafio.domain.Result
+import com.squareup.picasso.Picasso
 
 class HomeListAdapter(private val movies: List<Result>, private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<HomeListAdapter.MovieViewHolder>() {
     private lateinit var context: Context
@@ -20,7 +21,9 @@ class HomeListAdapter(private val movies: List<Result>, private val onItemClickL
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.title.text = movies[position].title
+        Picasso.with(context)
+            .load(movies[position].poster_path)
+            .into(holder.image)
         holder.item.setOnClickListener {
             onItemClickListener.onItemClick(position)
         }
@@ -32,7 +35,7 @@ class HomeListAdapter(private val movies: List<Result>, private val onItemClickL
 
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var item: LinearLayout = itemView.findViewById(R.id.movie_line_item)
-        var title: TextView = itemView.findViewById(R.id.movie_title_item)
+        var image: ImageView = itemView.findViewById(R.id.movie_image)
     }
 
     interface OnItemClickListener {
