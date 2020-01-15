@@ -7,6 +7,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.globoplay.desafio.domain.Result
 import com.globoplay.desafio.mirandinha.BuildConfig.*
 import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
@@ -16,8 +17,10 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getSupportActionBar()?.hide()
         setContentView(R.layout.activity_detail)
+
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false)
 
         movie = intent?.extras?.get("MOVIE") as Result
     }
@@ -27,6 +30,11 @@ class DetailActivity : AppCompatActivity() {
         Picasso.with(this)
             .load(IMAGE_HOST +movie?.poster_path)
             .into(detail_image)
+
+        Picasso.with(this)
+            .load(IMAGE_HOST +movie?.backdrop_path)
+            .transform(BlurTransformation(this, 25, 1))
+            .into(detail_image_blur)
     }
 
 

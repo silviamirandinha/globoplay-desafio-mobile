@@ -8,9 +8,19 @@
     android:background="@color/colorPrimaryDark">
 
     <ImageView
+        android:id="@+id/detail_image_blur"
+        android:layout_width="500dp"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
         android:id="@+id/detail_image"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
