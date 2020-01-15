@@ -3,4 +3,7 @@
     <string name="title_home">Filmes</string>
     <string name="title_favorite">Minha lista</string>
     <string name="detail_type">Filme</string>
+    <string name="detail_play">Assista</string>
+    <string name="detail_favorite">Adicionado</string>
+    <string name="detail_wish_list">Minha lista</string>
 </resources>
