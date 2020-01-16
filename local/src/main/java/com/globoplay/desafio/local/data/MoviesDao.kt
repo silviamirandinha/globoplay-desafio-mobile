@@ -2,6 +2,7 @@ package com.globoplay.desafio.local.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.globoplay.desafio.domain.Favorite
 import com.globoplay.desafio.domain.GenreID
 import com.globoplay.desafio.domain.Result
 
@@ -28,4 +29,10 @@ interface MoviesDao {
         insertGenreIds(result)
         insertSingleResult(result)
     }
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addFavoriteMovie(favorite: Favorite)
+
+    @Query("SELECT * FROM movies where id in (select id from favorite)")
+    fun findAllFavoriteMovies(): LiveData<List<Result>>
 }

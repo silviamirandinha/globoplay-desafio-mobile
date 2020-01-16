@@ -1,6 +1,7 @@
 package com.globoplay.desafio.repository
 
 import androidx.lifecycle.LiveData
+import com.globoplay.desafio.domain.Favorite
 import com.globoplay.desafio.domain.Result
 import com.globoplay.desafio.remote.api.MoviesAPI
 import com.globoplay.desafio.local.data.MoviesDao
@@ -9,6 +10,14 @@ class MovieRepositoryImpl(private val api: MoviesAPI,  private val dao: MoviesDa
 
     override fun getListMovies(): LiveData<List<Result>> {
         return dao.findAllMovies()
+    }
+
+    override fun addFavoriteMovies(id: Favorite){
+        dao.addFavoriteMovie(id)
+    }
+
+    override fun getListFavoriteMovies(): LiveData<List<Result>> {
+        return dao.findAllFavoriteMovies()
     }
 
     override suspend fun getMovies() {

@@ -1,13 +1,11 @@
 package com.globoplay.desafio.mirandinha.ui.favorite
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.globoplay.desafio.domain.Result
+import com.globoplay.desafio.repository.MovieRepository
 
-class FavoriteViewModel : ViewModel() {
+class FavoriteViewModel(private val repository: MovieRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is favorite Fragment"
-    }
-    val text: LiveData<String> = _text
+    val listFavoriteMovies: LiveData<List<Result>> = repository.getListFavoriteMovies()
 }
