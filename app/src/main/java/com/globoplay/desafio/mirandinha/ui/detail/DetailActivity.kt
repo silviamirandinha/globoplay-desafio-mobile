@@ -34,11 +34,9 @@ class DetailActivity : AppCompatActivity() {
         movie?.id?.let { viewModel.checkFavorite(movie?.id.toString())}
         viewModel.favorite?.observe(this, Observer { movie ->
             if(movie != null){
-                detail_favorite_check.visibility = View.VISIBLE
-                detail_favorite.visibility = View.INVISIBLE
+                showCheck()
             }else{
-                detail_favorite.visibility = View.VISIBLE
-                detail_favorite_check.visibility = View.INVISIBLE
+                hideCheck()
             }
         })
 
@@ -56,9 +54,25 @@ class DetailActivity : AppCompatActivity() {
         detail_favorite.setOnClickListener {
             movie?.id?.let { movieId ->
                 val favorite = Favorite(movieId)
-                viewModel.addFavoriteMovie(favorite)
+                viewModel.addFavorite(favorite)
             }
         }
 
+        detail_favorite_check.setOnClickListener {
+            movie?.id?.let { movieId ->
+                viewModel.removeFavorite(movieId.toString())
+            }
+        }
+
+    }
+
+    fun showCheck(){
+        detail_favorite_check.visibility = View.VISIBLE
+        detail_favorite.visibility = View.INVISIBLE
+    }
+
+    fun hideCheck(){
+        detail_favorite.visibility = View.VISIBLE
+        detail_favorite_check.visibility = View.INVISIBLE
     }
 }

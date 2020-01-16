@@ -33,6 +33,9 @@ interface MoviesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addFavoriteMovie(favorite: Favorite)
 
+    @Query("Delete FROM favorite where id = :id")
+    fun removeFavoriteMovies(id: String)
+
     @Query("SELECT * FROM movies where id in (select id from favorite)")
     fun findAllFavoriteMovies(): LiveData<List<Result>>
 

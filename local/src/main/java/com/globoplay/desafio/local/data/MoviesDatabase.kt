@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.globoplay.desafio.domain.Favorite
 import com.globoplay.desafio.domain.Result
 
-@Database(entities = [Result::class,Favorite::class], version = 5, exportSchema = false)
+@Database(entities = [Result::class,Favorite::class], version = 6, exportSchema = false)
 abstract class MoviesDatabase : RoomDatabase() {
     abstract fun moviesDao(): MoviesDao
 }

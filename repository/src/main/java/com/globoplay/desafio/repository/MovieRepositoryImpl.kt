@@ -16,6 +16,10 @@ class MovieRepositoryImpl(private val api: MoviesAPI,  private val dao: MoviesDa
         dao.addFavoriteMovie(id)
     }
 
+    override fun removeFavoriteMovies(id: String){
+        dao.removeFavoriteMovies(id)
+    }
+
     override fun getListFavoriteMovies(): LiveData<List<Result>> {
         return dao.findAllFavoriteMovies()
     }

@@ -10,4 +10,5 @@ interface MovieRepository {
     fun getListFavoriteMovies(): LiveData<List<Result>>
     fun addFavoriteMovies(id: Favorite)
     fun verifyFavoriteMovie(id: String): LiveData<Favorite>
+    fun removeFavoriteMovies(id: String)
 }
