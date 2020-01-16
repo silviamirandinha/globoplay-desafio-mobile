@@ -35,4 +35,7 @@ interface MoviesDao {
 
     @Query("SELECT * FROM movies where id in (select id from favorite)")
     fun findAllFavoriteMovies(): LiveData<List<Result>>
+
+    @Query("SELECT * FROM favorite where id = :id")
+    fun verifyFavoriteMovie(id: String): LiveData<Favorite>
 }

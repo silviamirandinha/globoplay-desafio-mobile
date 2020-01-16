@@ -1,7 +1,9 @@
 package com.globoplay.desafio.mirandinha.ui.detail
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.globoplay.desafio.domain.Favorite
 import com.globoplay.desafio.mirandinha.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,6 +31,17 @@ class DetailActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        movie?.id?.let { viewModel.checkFavorite(movie?.id.toString())}
+        viewModel.favorite?.observe(this, Observer { movie ->
+            if(movie != null){
+                detail_favorite_check.visibility = View.VISIBLE
+                detail_favorite.visibility = View.INVISIBLE
+            }else{
+                detail_favorite.visibility = View.VISIBLE
+                detail_favorite_check.visibility = View.INVISIBLE
+            }
+        })
+
         Picasso.with(this)
             .load(IMAGE_HOST +movie?.poster_path)
             .into(detail_image)
@@ -48,10 +61,4 @@ class DetailActivity : AppCompatActivity() {
         }
 
     }
-
-
-
-
-
-
 }

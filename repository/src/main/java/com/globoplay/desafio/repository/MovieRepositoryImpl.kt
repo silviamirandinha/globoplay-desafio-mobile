@@ -20,6 +20,10 @@ class MovieRepositoryImpl(private val api: MoviesAPI,  private val dao: MoviesDa
         return dao.findAllFavoriteMovies()
     }
 
+    override fun verifyFavoriteMovie(id: String): LiveData<Favorite> {
+        return dao.verifyFavoriteMovie(id)
+    }
+
     override suspend fun getMovies() {
         val movies = api.getMovies("3599df922b2707a3b9ef2f95f1bbd73b","pt-BR","popularity.desc")
         movies.results?.let { dao.addMovies(it) }

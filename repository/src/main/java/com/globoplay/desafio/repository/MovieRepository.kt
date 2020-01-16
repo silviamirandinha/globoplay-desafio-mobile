@@ -9,4 +9,5 @@ interface MovieRepository {
     suspend fun getMovies()
     fun getListFavoriteMovies(): LiveData<List<Result>>
     fun addFavoriteMovies(id: Favorite)
+    fun verifyFavoriteMovie(id: String): LiveData<Favorite>
 }
